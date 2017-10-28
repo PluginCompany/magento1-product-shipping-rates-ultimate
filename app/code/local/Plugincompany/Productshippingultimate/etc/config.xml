@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<config>
+<!--
+/**
+ * Copyright (c) 2014-2026 Plugin Company
+ *
+ * This file is part of Product Shipping Rates Ultimate, released under the MIT License.
+ * See the LICENSE file in the project root.
+ */
+-->
+    <modules>
+        <Plugincompany_Productshippingultimate>
+            <version>1.2.0</version>
+        </Plugincompany_Productshippingultimate>
+    </modules>
+    <global>
+        <helpers>
+            <plugincompany_productshippingultimate>
+                <class>Plugincompany_Productshippingultimate_Helper</class>
+            </plugincompany_productshippingultimate>
+        </helpers>
+        <models>
+            <plugincompany_productshippingultimate>
+                <class>Plugincompany_Productshippingultimate_Model</class>
+                <resourceModel>plugincompany_productshippingultimate_resource</resourceModel>
+            </plugincompany_productshippingultimate>
+            <plugincompany_productshippingultimate_resource>
+                <class>Plugincompany_Productshippingultimate_Model_Resource</class>
+                <entities>
+                    <preset>
+                        <table>plugincompany_shippingultimate_preset</table>
+                    </preset>
+                </entities>
+            </plugincompany_productshippingultimate_resource>
+        </models>
+        <blocks>
+            <plugincompany_productshippingultimate>
+                <class>Plugincompany_Productshippingultimate_Block</class>
+            </plugincompany_productshippingultimate>
+        </blocks>
+        <resources>
+            <productshippingultimate_setup>
+                <setup>
+                    <module>Plugincompany_Productshippingultimate</module>
+                    <class>Plugincompany_Productshippingultimate_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </productshippingultimate_setup>
+            <productshippingultimate_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </productshippingultimate_write>
+            <productshippingultimate_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </productshippingultimate_read>
+        </resources>
+        <events>
+            <sales_quote_address_collect_totals_after>
+                <observers>
+                    <plugincompany_productshippingultimate>
+                        <type>model</type>
+                        <class>plugincompany_productshippingultimate/observer</class>
+                        <method>salesQuoteAddressCollectTotalsAfter</method>
+                    </plugincompany_productshippingultimate>
+                </observers>
+            </sales_quote_address_collect_totals_after>
+        </events>
+    </global>
+    <adminhtml>
+        <menu>
+            <catalog>
+                <children>
+                    <groupswitch module="plugincompany_productshippingultimate">
+                        <title>Product Shipping Rate Presets</title>
+                        <sort_order>10000</sort_order>
+                        <action>adminhtml/pcshippingultimatepreset_index/index</action>
+                    </groupswitch>
+                </children>
+            </catalog>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <groupswitch translate="title" module="plugincompany_productshippingultimate">
+                                    <title>Product Shipping Rate Presets</title>
+                                    <sort_order>1000</sort_order>
+                                </groupswitch>
+                            </children>
+                        </catalog>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <plugincompany_productshippingultimate>
+                    <file>plugincompany_productshippingultimate.xml</file>
+                </plugincompany_productshippingultimate>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <carriers>
+            <productshippingultimate>
+                <active>1</active>
+                <model>plugincompany_productshippingultimate/carrier_productshippingultimate</model>
+                <name>Product / Country Specific</name>
+                <title>Shipping Rate</title>
+                <sort_order>0</sort_order>
+                <pcu_standard_rate>0</pcu_standard_rate>
+                <type>I</type>
+                <handling_type>F</handling_type>
+            </productshippingultimate>
+        </carriers>
+    </default>
+    <admin>
+        <routers>
+            <adminhtml>
+				<args>
+					<modules>
+						<adminhtml before="Mage_Adminhtml">Plugincompany_Productshippingultimate_Adminhtml</adminhtml>
+					</modules>
+				</args>
+			</adminhtml>
+        </routers>
+    </admin>
+</config>

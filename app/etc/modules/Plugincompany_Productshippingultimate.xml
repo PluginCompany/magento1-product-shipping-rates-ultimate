@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+<!--
+/**
+ * Copyright (c) 2014-2026 Plugin Company
+ *
+ * This file is part of Product Shipping Rates Ultimate, released under the MIT License.
+ * See the LICENSE file in the project root.
+ */
+-->
+  <modules>
+    <Plugincompany_Productshippingultimate>
+      <active>true</active>
+      <codePool>local</codePool>            
+	        <depends>
+                <Mage_Shipping />
+            </depends>
+      <version>1.0.2</version>
+    </Plugincompany_Productshippingultimate>
+  </modules>
+</config>

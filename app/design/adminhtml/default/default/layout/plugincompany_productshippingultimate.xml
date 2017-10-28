@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<layout>
+    <pcujs>
+        <reference name="head">
+            <action method="addJs">
+                <name>plugincompany/jquerynoconflict.js</name>
+            </action>
+            <action method="addJs">
+                <name>plugincompany/productshippingultimate/rate_selector.js</name>
+            </action>
+        </reference>
+    </pcujs>
+    <adminhtml_catalog_product_action_attribute_edit>
+        <update handle="pcujs"/>
+    </adminhtml_catalog_product_action_attribute_edit>
+    <adminhtml_catalog_product_edit>
+        <reference name="head">
+            <action method="addJs">
+                <name>plugincompany/productshippingultimate/preset_disable.js</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>plugincompany/productshippingultimate/disable_mask.css</name>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+    <adminhtml_pcshippingultimatepreset_index_edit>
+        <update handle="pcujs"/>
+        <reference name="head">
+            <action method="addJs">
+                <name>lib/flex.js</name>
+            </action>
+        </reference>
+    </adminhtml_pcshippingultimatepreset_index_edit>
+</layout>

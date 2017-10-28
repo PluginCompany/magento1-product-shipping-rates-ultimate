@@ -1,0 +1,6 @@
+.pc-disable-mask {
+    position: absolute;
+    width: 460px;
+    height: calc(100% - 10px);
+    background: rgba(123, 123, 123, 0.18);
+}

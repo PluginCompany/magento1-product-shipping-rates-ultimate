@@ -1,0 +1,6 @@
+app/code/local/Plugincompany/Productshippingultimate app/code/local/Plugincompany/Productshippingultimate
+app/code/local/Varien/Data/Form/Element/Pcshippingultimate.php app/code/local/Varien/Data/Form/Element/Pcshippingultimate.php
+app/design/adminhtml/default/default/layout/plugincompany_productshippingultimate.xml app/design/adminhtml/default/default/layout/plugincompany_productshippingultimate.xml
+app/etc/modules/Plugincompany_Productshippingultimate.xml app/etc/modules/Plugincompany_Productshippingultimate.xml
+js/plugincompany/jquerynoconflict.js js/plugincompany/jquerynoconflict.js
+js/plugincompany/productshippingultimate js/plugincompany/productshippingultimate

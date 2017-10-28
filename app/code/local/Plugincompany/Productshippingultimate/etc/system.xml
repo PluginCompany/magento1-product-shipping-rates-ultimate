@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<config>
+    <!--
+    /**
+     * Copyright (c) 2014-2026 Plugin Company
+     *
+     * This file is part of Product Shipping Rates Ultimate, released under the MIT License.
+     * See the LICENSE file in the project root.
+     */
+    -->
+    <sections>
+        <carriers translate="label" module="plugincompany_productshippingultimate">
+            <groups>
+                <productshippingultimate translate="label">
+                    <label>Product Shipping Rates Ultimate</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <model>productshippingultimate/carrier_productshippingultimate</model>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <name translate="label">
+                            <label>Method Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name>
+                        <pcu_standard_rate translate="label">
+                            <label>Default Country and Customer Group Shipping Rates</label>
+                            <frontend_type>pcshippingultimate</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <default>0</default>
+                            <comment>The default shipping rates which will be used if no product-specific shipping rates are configured for the destination country and/or customer group.</comment>
+                        </pcu_standard_rate>
+                        <pcu_standard_per_item translate="label">
+                            <label>Default Product Shipping Rate Calculation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>plugincompany_productshippingultimate/source_peritem</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[ <b>Per item:</b> shipping rate is multiplied with the ordered quantity.<br/><b>Once per product:</b> shipping rate is charged once, regardless of the ordered quantity.]]></comment>
+                        </pcu_standard_per_item>
+                        <pcu_standard_override translate="label">
+                            <label>Default Total Shipping Costs Calculation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>plugincompany_productshippingultimate/source_override</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<b>Add to total shipping costs:</b> The shipping costs for each item are added to the total shipping costs. <br /><b>Override total shipping costs:</b> product shipping costs will override the total shipping costs. In case of multiple overrides, the highest rate will be charged.]]></comment>
+                        </pcu_standard_override>
+                        <hide_if_zero translate="label">
+                            <label>Disable Method if Total is Zero</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Shipping method isn't shown if the total rate is zero.</comment>
+                        </hide_if_zero>
+                        <disable_methods translate="label">
+                            <label>Disable Other Shipping Methods</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Disable other shipping methods if Product Shipping Rates is available.</comment>
+                        </disable_methods>
+                        <methods_to_disable>
+                            <label>Methods to Disable</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>plugincompany_productshippingultimate/source_system_config_shippingMethods</source_model>
+                            <sort_order>81</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The selected method(s) will be disabled if Product Shipping Rates is available for the current cart.</comment>
+                            <depends>
+                                <disable_methods>1</disable_methods>
+                            </depends>
+                        </methods_to_disable>
+                        <sallowspecific translate="label">
+                            <label>Ship to Applicable Countries</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <frontend_class>shipping-applicable-country</frontend_class>
+                            <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sallowspecific>
+                        <specificcountry translate="label">
+                            <label>Ship to Specific Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>91</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </specificcountry>
+                        <showmethod translate="label">
+                            <label>Show Method if Not Applicable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>92</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </showmethod>
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1000</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </productshippingultimate>
+            </groups>
+        </carriers>
+    </sections>
+</config>

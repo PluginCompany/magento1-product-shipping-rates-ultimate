@@ -1,0 +1,15 @@
+{
+    "name": "plugincompany/magento1-product-shipping-rates-ultimate",
+    "description": "Product Shipping Rates Ultimate for Magento 1 / OpenMage",
+    "type": "magento-module",
+    "license": "MIT",
+    "homepage": "https://plugin.company/magento1-extensions/product-shipping-rates-ultimate.html",
+    "support": {
+        "issues": "https://github.com/PluginCompany/magento1-product-shipping-rates-ultimate/issues",
+        "source": "https://github.com/PluginCompany/magento1-product-shipping-rates-ultimate"
+    },
+    "version": "1.2.0",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
